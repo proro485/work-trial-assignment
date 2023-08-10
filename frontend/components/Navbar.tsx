@@ -58,10 +58,11 @@ const Navbar = ({ query, setQuery }: NavbarProps) => {
 				<Text size="xl" weight="bold">
 					Wall of Recognitions
 				</Text>
-				<div className="hidden items-end justify-center space-x-4 lg:flex">
+				<div className="hidden items-end justify-center space-x-4 xl:flex">
 					<Input.Wrapper label="Search">
 						<Input
 							placeholder="Search by name or message"
+							type="text"
 							value={search}
 							onChange={(e) => setSearch(e.target.value)}
 						/>
@@ -116,7 +117,7 @@ const Navbar = ({ query, setQuery }: NavbarProps) => {
 						</Button>
 					</div>
 				</div>
-				<Burger opened={opened} onClick={toggle} className="lg:hidden" size="sm" />
+				<Burger opened={opened} onClick={toggle} className="xl:hidden" size="sm" />
 				<Transition transition="pop-top-right" duration={200} mounted={opened}>
 					{(styles) => (
 						<Paper
@@ -127,6 +128,7 @@ const Navbar = ({ query, setQuery }: NavbarProps) => {
 							<Input.Wrapper label="Search">
 								<Input
 									placeholder="Search by name or message"
+									type="text"
 									value={search}
 									onChange={(e) => setSearch(e.target.value)}
 								/>
@@ -163,7 +165,7 @@ const Navbar = ({ query, setQuery }: NavbarProps) => {
 									},
 								]}
 							/>
-							<div className="flex space-x-4">
+							<div className="flex justify-end space-x-4 pt-3">
 								<Button
 									onClick={() => {
 										handleSearch();
@@ -177,6 +179,7 @@ const Navbar = ({ query, setQuery }: NavbarProps) => {
 										handleReset();
 										toggle();
 									}}
+									variant="outline"
 									display={
 										query.search === "" &&
 										query.startDate === "" &&

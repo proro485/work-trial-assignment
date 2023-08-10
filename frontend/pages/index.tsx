@@ -21,7 +21,6 @@ const RecognitionWall: NextPage = () => {
 		isSuccess,
 		isError,
 		fetchNextPage,
-		isFetchingNextPage,
 	} = useInfiniteQuery(
 		["recognitions", query],
 		async ({ pageParam = 1 }) => {
@@ -65,7 +64,7 @@ const RecognitionWall: NextPage = () => {
 			<Navbar query={query} setQuery={setQuery} />
 			<section className="flex h-screen w-full justify-center p-4 pt-24">
 				<div className="max-w-7xl">
-					{isLoading && <div>Loading...</div>}
+					{isLoading && <div className="flex items-center justify-center">Loading...</div>}
 					{isSuccess && (
 						<Masonry
 							breakpointCols={breakpointColumnsObj}
@@ -89,11 +88,6 @@ const RecognitionWall: NextPage = () => {
 								});
 							})}
 						</Masonry>
-					)}
-					{isFetchingNextPage && (
-						<div className="fixed bottom-0 left-0 z-[1000] bg-black p-2 text-center text-xl font-bold text-white">
-							Loading more...
-						</div>
 					)}
 					{isError && <div>Error</div>}
 				</div>
